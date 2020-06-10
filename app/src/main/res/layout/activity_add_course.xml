@@ -4,32 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GpaActivity"
+    tools:context=".AddCourseActivity"
     android:orientation="vertical"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp">
 
-    <TextView
-        android:id="@+id/zongjidian"
+    <EditText
+        android:id="@+id/CourseName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:text="TextView"
-        android:textSize="24sp"
-        android:gravity="center"/>
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
 
-    <ListView
-        android:id="@+id/chengjidan"
+    <EditText
+        android:id="@+id/xuefen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/chengji"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
 
     <Button
-        android:id="@+id/addChengji"
+        android:id="@+id/add1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.05"
         android:text="@string/add_score" />
 </LinearLayout>

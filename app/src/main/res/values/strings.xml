@@ -2,4 +2,6 @@
     <string name="app_name">SchoolBao</string>
     <string name="beiwanglu">MEMO</string>
     <string name="jidian">GPA</string>
+    <string name="keyword">Keyword</string>
+    <string name="add_score">Add Course</string>
 </resources>
