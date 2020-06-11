@@ -4,4 +4,6 @@
     <string name="jidian">GPA</string>
     <string name="keyword">Keyword</string>
     <string name="add_score">Add Course</string>
+    <string name="shixi">Practice</string>
+
 </resources>
