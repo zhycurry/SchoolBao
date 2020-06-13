@@ -1,27 +1,31 @@
 package com.swufe.schoolbao;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.litepal.tablemanager.Connector;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import at.markushi.ui.CircleButton;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView ioItemRecyclerView;
+    private IOItemAdapter adapter;
+    private List<IOItem> ioItemList = new ArrayList<>();
     private CircleButton addBtn;
-    private ImageView headerImg;
     private TextView monthlyCost, monthlyEarn;
 
     private Sum sum = new Sum();
@@ -58,5 +62,20 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View btn){
         Intent intent = new Intent(MainActivity.this, AddItemActivity.class);
         startActivity(intent);
+    }
+
+    public void setRecyclerView(Context context) {
+        // 用于存储recyclerView的日期
+        GlobalVariables.setmDate("");
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context);
+        layoutManager.setStackFromEnd(true);    // 列表从底部开始展示，反转后从上方开始展示（新增事件在上边）
+        layoutManager.setReverseLayout(true);   // 列表反转
+
+        ioItemRecyclerView.setLayoutManager(layoutManager);
+        adapter = new IOItemAdapter(ioItemList);
+        ioItemRecyclerView.setAdapter(adapter);
+
+
     }
 }
