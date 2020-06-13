@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">校园宝</string>
-    <string name="beiwanglu">备忘录</string>
-    <string name="jidian">成绩</string>
+    <string name="jizhang">记账</string>
     <string name="keyword">关键词</string>
-    <string name="add_score">添加课程成绩</string>
     <string name="shixi">实习</string>
+    <string name="danweiming">单位名称</string>
+    <string name="fabushijian">发布时间</string>
+    <string name="Title">校园宝</string>
+    <string name="show_balance">显示余额</string>
+    <string name="monthly_income_title">当月收入</string>
+    <string name="monthly_expenditure_title">当月支出</string>
+    <string name="add_cost_button_string">支出</string>
+    <string name="add_earn_button_string">收入</string>
+    <string name="page3_banner">备注</string>
+    <string name="page3_edit_hint">记录点滴生活&#8230;</string>
+    <string name="page3_count">0/30</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_settings">设置</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
