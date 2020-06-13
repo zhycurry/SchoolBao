@@ -13,10 +13,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="monthly_expenditure_title">MouthOut</string>
     <string name="monthly_income_title">MouthIn</string>
-    <string name="page3_banner">Remark</string>
-    <string name="page3_count">0/30</string>
     <string name="show_balance">Balance</string>
-    <string name="page3_edit_hint">LIFE</string>
+    <string name="yiabn">Common</string>
+    <string name="ling">0.00</string>
 
 
 </resources>
