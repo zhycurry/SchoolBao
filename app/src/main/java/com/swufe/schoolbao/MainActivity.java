@@ -23,7 +23,6 @@ import at.markushi.ui.CircleButton;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView ioItemRecyclerView;
-    private IOItemAdapter adapter;
     private List<IOItem> ioItemList = new ArrayList<>();
     private CircleButton addBtn;
     private TextView monthlyCost, monthlyEarn;
@@ -73,9 +72,5 @@ public class MainActivity extends AppCompatActivity {
         layoutManager.setReverseLayout(true);   // 列表反转
 
         ioItemRecyclerView.setLayoutManager(layoutManager);
-        adapter = new IOItemAdapter(ioItemList);
-        ioItemRecyclerView.setAdapter(adapter);
-
-
     }
 }

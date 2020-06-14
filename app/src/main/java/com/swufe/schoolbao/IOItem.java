@@ -10,7 +10,6 @@ public class IOItem extends DataSupport {
     private int type;                       // 类型：收入、支出
     private double money;
     private String name;
-    private String description;
     private String timeStamp;
     private String srcName;                 // 项目资源名称
 
@@ -25,16 +24,13 @@ public class IOItem extends DataSupport {
     public double getMoney()                       { return money; }
     public int getType()                           { return type; }
     public String getName()                        { return name; }
-    public String getDescription()                 { return description; }
     public String getTimeStamp()                   { return timeStamp; }
-    public String getSrcName()                     { return srcName; }
     public int getId()                             { return id; }
 
     // 设定属性
     public void setMoney(double money)             { this.money = money; }
     public void setType(int type)                  { this.type = type; }
     public void setName(String name)               { this.name = name; }
-    public void setDescription(String description) { this.description = description; }
     public void setTimeStamp(String timeStamp)     { this.timeStamp = timeStamp; }
     public void setSrcName(String srcName)         { this.srcName = srcName; }
 
