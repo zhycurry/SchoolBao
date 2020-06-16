@@ -30,8 +30,8 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
 
         public ViewHolder(View view) {
             super(view);
-            itemImage = (ImageView) view.findViewById(R.id.item_grid_icon);
-            itemTitle = (TextView) view.findViewById(R.id.item_grid_title);
+            itemImage =  view.findViewById(R.id.item_grid_icon);
+            itemTitle =  view.findViewById(R.id.item_grid_title);
         }
     }
 

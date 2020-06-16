@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,6 +31,7 @@ public class IOItemAdapter extends RecyclerView.Adapter<IOItemAdapter.ViewHolder
         TextView itemNameEarn, itemNameCost;
         TextView itemMoneyEarn, itemMoneyCost;
         TextView itemDate;
+        ImageView itemImageEarn, itemImageCost;
 
         public ViewHolder(View view) {
             super(view);
@@ -42,6 +44,8 @@ public class IOItemAdapter extends RecyclerView.Adapter<IOItemAdapter.ViewHolder
             itemMoneyEarn =  view.findViewById(R.id.earn_item_money_main);
             itemMoneyCost =  view.findViewById(R.id.cost_item_money_main);
             itemDate      =  view.findViewById(R.id.iotem_date);
+            itemImageEarn =  view.findViewById(R.id.earn_item_img_main);
+            itemImageCost =  view.findViewById(R.id.cost_item_img_main);
         }
     }
 
@@ -64,12 +68,14 @@ public class IOItemAdapter extends RecyclerView.Adapter<IOItemAdapter.ViewHolder
         if (ioItem.getType() == TYPE_COST) {       // -1代表支出
             holder.earnLayout.setVisibility(View.GONE);
             holder.costLayout.setVisibility(View.VISIBLE);
+            holder.itemImageCost.setImageResource(ioItem.getSrcId());
             holder.itemNameCost.setText(ioItem.getName());
             holder.itemMoneyCost.setText(decimalFormat.format(ioItem.getMoney()));
         //表示收入的布局
         } else if (ioItem.getType() == TYPE_EARN) {   //1代表收入
             holder.earnLayout.setVisibility(View.VISIBLE);
             holder.costLayout.setVisibility(View.GONE);
+            holder.itemImageEarn.setImageResource(ioItem.getSrcId());
             holder.itemNameEarn.setText(ioItem.getName());
             holder.itemMoneyEarn.setText(decimalFormat.format(ioItem.getMoney()));
         }
@@ -79,16 +85,5 @@ public class IOItemAdapter extends RecyclerView.Adapter<IOItemAdapter.ViewHolder
     @Override
     public int getItemCount() {
         return mIOItemList.size();
-    }
-
-    // 利用全局变量进行判定
-    public void showItemDate(ViewHolder holder, String Date) {
-        if (GlobalVariables.getmDate().equals(Date)) holder.dateBar.setVisibility(View.GONE);
-        else {
-            holder.dateBar.setVisibility(View.VISIBLE);
-            holder.itemDate.setText(Date);
-            GlobalVariables.setmDate(Date);
-            Log.i(TAG, "showItemDate: "+Date);
-        }
     }
 }

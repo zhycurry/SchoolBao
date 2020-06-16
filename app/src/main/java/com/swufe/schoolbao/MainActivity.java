@@ -21,8 +21,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView inItemRecyclerView;
-    private RecyclerView outItemRecyclerView;
+    private RecyclerView ioItemRecyclerView;
     private IOItemAdapter adapter;
     private List<IOItem> ioItemList = new ArrayList<>();
     private TextView monthlyCost, monthlyEarn;
@@ -48,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
         PACKAGE_NAME = getApplicationContext().getPackageName();
         resources = getResources();
 
-        inItemRecyclerView =  findViewById(R.id.in_items);
-        outItemRecyclerView =  findViewById(R.id.out_items);
+        ioItemRecyclerView =  findViewById(R.id.in_and_out_items);
         monthlyCost =  findViewById(R.id.monthly_cost_money);
         monthlyEarn =  findViewById(R.id.monthly_earn_money);
 
@@ -75,18 +73,9 @@ public class MainActivity extends AppCompatActivity {
         layoutManager.setStackFromEnd(true);    // 列表从底部开始展示，反转后从上方开始展示
         layoutManager.setReverseLayout(true);   // 列表反转
 
-        for(int i=0;i<ioItemList.size();i++){
-            if(ioItemList.get(i).getType()==1){
-                inItemRecyclerView.setLayoutManager(layoutManager);
-                adapter = new IOItemAdapter(ioItemList);
-                inItemRecyclerView.setAdapter(adapter);
-            }else if(ioItemList.get(i).getType()==-1){
-                outItemRecyclerView.setLayoutManager(layoutManager);
-                adapter = new IOItemAdapter(ioItemList);
-                outItemRecyclerView.setAdapter(adapter);
-            }
-        }
-
+        ioItemRecyclerView.setLayoutManager(layoutManager);
+        adapter = new IOItemAdapter(ioItemList);
+        ioItemRecyclerView.setAdapter(adapter);
 
         Log.i(TAG, "setRecyclerView: ");
     }
