@@ -59,8 +59,8 @@ public class IOItemAdapter extends RecyclerView.Adapter<IOItemAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         IOItem ioItem = mIOItemList.get(position);
-        showItemDate(holder, ioItem.getTimeStamp());
-        // 表示支出的布局
+        //        showItemDate(holder, ioItem.getTimeStamp());
+        //        // 表示支出的布局
         if (ioItem.getType() == TYPE_COST) {       // -1代表支出
             holder.earnLayout.setVisibility(View.GONE);
             holder.costLayout.setVisibility(View.VISIBLE);

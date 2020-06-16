@@ -31,24 +31,27 @@
         app:layout_marginTopPercent="17%"
         app:layout_widthPercent="25%" />
 
-    <androidx.percentlayout.widget.PercentRelativeLayout
+    <LinearLayout
         android:id="@+id/main_recycler"
-        android:layout_below="@id/add_button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/add_button"
+        android:orientation="horizontal">
 
-        <View
-            android:layout_height="match_parent"
-            android:layout_width="1dp"
-            android:background="@color/colorLightSteelBlue"
-            android:layout_centerHorizontal="true" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/in_and_out_items"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:id="@+id/in_items"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
-    </androidx.percentlayout.widget.PercentRelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/out_items"/>
+
+    </LinearLayout>
 
 
 
