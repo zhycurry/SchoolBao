@@ -86,11 +86,10 @@
     <RelativeLayout
         android:id="@+id/item_fragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
         app:layout_heightPercent="45%"
         android:layout_below="@id/have_chosen"
-        android:background="#FFFFFF"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_height="50dp">
     </RelativeLayout>
 
     <androidx.percentlayout.widget.PercentRelativeLayout

@@ -27,12 +27,14 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return false;
+        Log.d(TAG, "isViewFromObject: ");
+        return view == object;
     }
 
     @Override
     public int getCount() {
-        return 0;
+        Log.d(TAG, "getCount: ");
+        return mViewList.size();
     }
 
     @Override

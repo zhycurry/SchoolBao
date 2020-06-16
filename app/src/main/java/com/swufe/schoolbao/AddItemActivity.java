@@ -161,6 +161,7 @@ public class AddItemActivity extends AppCompatActivity {
         Button view = (Button) btn;
         String input = view.getText().toString();
         String money = GlobalVariables.getmInputMoney();
+        Log.i(TAG, "calculatorNumOnclick: money"+money);
         if (GlobalVariables.getmInputMoney().length()>2) {
             String dot = money.substring(money.length() - 3, money.length() - 2);
             Log.i(TAG, "calculatorNumOnclick: " + dot);

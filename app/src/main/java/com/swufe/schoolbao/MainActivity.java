@@ -16,7 +16,6 @@ import org.litepal.crud.DataSupport;
 import org.litepal.crud.callback.FindMultiCallback;
 import org.litepal.tablemanager.Connector;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     public static Resources resources;
 
     private static final String TAG = "MainActivity";
-    private SimpleDateFormat formatItem = new SimpleDateFormat("yyyy年MM月dd日");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
