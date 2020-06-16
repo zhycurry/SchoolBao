@@ -8,8 +8,8 @@
     <string name="Title">SchoolBao</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="action_settings">Settings</string>
-    <string name="add_cost_button_string">OUT</string>
-    <string name="add_earn_button_string">IN</string>
+    <string name="add_cost_button_string">COST</string>
+    <string name="add_earn_button_string">EARN</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="monthly_expenditure_title">MouthOut</string>
     <string name="monthly_income_title">MouthIn</string>

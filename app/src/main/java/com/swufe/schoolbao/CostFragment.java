@@ -1,10 +1,13 @@
 package com.swufe.schoolbao;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -24,7 +27,10 @@ public class CostFragment extends Fragment {
     private ViewPager mPager;
     private List<View> mPagerList;
     private List<IOItem> mDatas;
+    private TextView itemTitle;
+    private ImageView itemImage;
     private ExtensiblePageIndicator extensiblePageIndicator;
+    protected Context mContext;//声明一个上下文对象
 
     // 总的页数
     private int pageCount;
@@ -42,20 +48,22 @@ public class CostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView: start");
-
-        // 获得AddItemActivity对应的控件，用来提示已选择的项目类型
+        mContext = getActivity();
 
         View view = inflater.inflate(R.layout.cost_fragment, container, false);
 
         mPager =  view.findViewById(R.id.viewpager_1);
-        extensiblePageIndicator = (ExtensiblePageIndicator) view.findViewById(R.id.ll_dot_1);
+        extensiblePageIndicator =  view.findViewById(R.id.ll_dot_1);
 
-
-        int height = mPager.getHeight();
-        int width = mPager.getWidth();
+        itemImage =  getActivity().findViewById(R.id.chosen_image);
+        itemTitle =  getActivity().findViewById(R.id.chosen_title);
 
         // 初始化数据源
         initDatas();
+        Log.i(TAG, "onCreateView: 是否初始化");
+
+        // 初始化上方banner
+        changeBanner(mDatas.get(0));
 
         // 总的页数=总数/每页数量，并取整
         pageCount = (int) Math.ceil(mDatas.size() * 1.0 / pageSize);
@@ -72,7 +80,7 @@ public class CostFragment extends Fragment {
             adaper.setOnItemClickListener(new GridRecyclerAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, int position) {
-
+                    changeBanner(mDatas.get(position));
                 }
             });
         }
@@ -83,17 +91,20 @@ public class CostFragment extends Fragment {
         return view;
     }
 
-    /**
-     * 初始化数据源
-     */
+    //初始化数据源
     private void initDatas() {
         mDatas = new ArrayList<IOItem>();
         for (int i = 1; i <= titles.length; i++) {
             mDatas.add(new IOItem("type_big_" + i, titles[i-1]));
         }
+        Log.i(TAG, "initDatas: 初始化");
     }
 
-    //
-
-
+    // 改变banner状态
+    public void changeBanner(IOItem tmpItem) {
+        itemImage.setImageResource(tmpItem.getSrcId());
+        itemTitle.setText(tmpItem.getName());
+        itemImage.setTag(-1);                        // 保留图片资源属性，-1表示支出
+        itemTitle.setTag(tmpItem.getSrcName());      // 保留图片资源名称作为标签，方便以后调用
+    }
 }

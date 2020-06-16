@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.List;
@@ -25,23 +26,20 @@ public class ViewPagerAdapter extends PagerAdapter {
     }
 
     @Override
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+        return false;
+    }
+
+    @Override
+    public int getCount() {
+        return 0;
+    }
+
+    @Override
     public Object instantiateItem(ViewGroup container, int position) {
         Log.i(TAG, "instantiateItem: ");
         container.addView(mViewList.get(position));
         return (mViewList.get(position));
     }
 
-    @Override
-    public int getCount() {
-        Log.i(TAG, "getCount: ");
-        if (mViewList == null)
-            return 0;
-        return mViewList.size();
-    }
-
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        Log.i(TAG, "isViewFromObject: ");
-        return view == object;
-    }
 }

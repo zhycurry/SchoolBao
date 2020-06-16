@@ -1,5 +1,7 @@
 package com.swufe.schoolbao;
 
+import android.content.res.Resources;
+
 import org.litepal.crud.DataSupport;
 
 public class IOItem extends DataSupport {
@@ -25,6 +27,7 @@ public class IOItem extends DataSupport {
     public int getType()                           { return type; }
     public String getName()                        { return name; }
     public String getTimeStamp()                   { return timeStamp; }
+    public String getSrcName()                     { return srcName; }
     public int getId()                             { return id; }
 
     // 设定属性
@@ -34,4 +37,9 @@ public class IOItem extends DataSupport {
     public void setTimeStamp(String timeStamp)     { this.timeStamp = timeStamp; }
     public void setSrcName(String srcName)         { this.srcName = srcName; }
 
+    // 返回图片资源的id
+    public int getSrcId() {
+        Resources resources = MainActivity.resources;
+        return resources.getIdentifier(srcName, "drawable", MainActivity.PACKAGE_NAME);
+    }
 }

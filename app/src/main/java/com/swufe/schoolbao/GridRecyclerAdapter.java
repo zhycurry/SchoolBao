@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,12 +25,13 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
     private OnItemClickListener mOnItemClickListener = null;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-
+        private ImageView itemImage;
         private TextView itemTitle;
 
         public ViewHolder(View view) {
             super(view);
-            itemTitle =  view.findViewById(R.id.item_grid_title);
+            itemImage = (ImageView) view.findViewById(R.id.item_grid_icon);
+            itemTitle = (TextView) view.findViewById(R.id.item_grid_title);
         }
     }
 
@@ -41,7 +43,7 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.i(TAG, "onCreateViewHolder: ");
+        Log.d(TAG, "onCreateViewHolder: ");
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chose_io_item, parent, false);
         // 重新设计子项高度
         int height = parent.getHeight();
@@ -64,9 +66,10 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Log.i(TAG, "onBindViewHolder: I am in here:" + position);
+        Log.d(TAG, "onBindViewHolder: I am in here:" + position);
         int realPositon = position + curIndex * pageSize;
         IOItem ioItem = mDatas.get(realPositon);
+        holder.itemImage.setImageResource(ioItem.getSrcId());
         holder.itemTitle.setText(ioItem.getName());
         // 将数据保存在itemView的Tag中，以便点击时进行获取
         holder.itemView.setTag(realPositon);
@@ -82,3 +85,4 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
         this.mOnItemClickListener = listener;
     }
 }
+
