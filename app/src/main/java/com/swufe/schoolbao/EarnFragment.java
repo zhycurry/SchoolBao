@@ -96,7 +96,7 @@ public class EarnFragment extends Fragment {
     public void changeBanner(IOItem tmpItem) {
         itemImage.setImageResource(tmpItem.getSrcId());
         itemTitle.setText(tmpItem.getName());
-        itemImage.setTag(-1);                        // 保留图片资源属性，-1表示支出
+        itemImage.setTag(1);                        // 保留图片资源属性，1表示收入
         itemTitle.setTag(tmpItem.getSrcName());      // 保留图片资源名称作为标签，方便以后调用
     }
 }

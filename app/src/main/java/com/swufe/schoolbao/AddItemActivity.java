@@ -64,10 +64,10 @@ public class AddItemActivity extends AppCompatActivity {
         addEarnBtn.setTextColor(0xff908070); // 设置“收入”按钮为橙色
 
         manager = getSupportFragmentManager();//获取Manager，在活动中可以直接通过调用getFragmentManager()方法得到
-        transaction = manager.beginTransaction();
-        transaction.replace(R.id.item_fragment, new CostFragment());
+        transaction = manager.beginTransaction();//开启一个事务，通过调用beginTransaction()方法开启
+        transaction.replace(R.id.item_fragment, new CostFragment());//向容器内添加或替换碎片，一般使用replace()方法实现，需要传入容器的id和待添加的碎片实例
         Log.i(TAG, "onCreate: 是否替换");
-        transaction.addToBackStack(null);
+        transaction.addToBackStack(null);// 使用addToBackStack()方法，将事务添加到返回栈中，填入的是用于描述返回栈的一个名字
         transaction.commit();
 
     }
@@ -85,7 +85,7 @@ public class AddItemActivity extends AppCompatActivity {
                     Log.i(TAG, "onClick: add_cost_button");
                     break;
                 case R.id.add_earn_button:
-                    addEarnBtn.setTextColor(0xffff8c00); // 设置“收入“按钮为灰色
+                addEarnBtn.setTextColor(0xffff8c00); // 设置“收入“按钮为灰色
                     addCostBtn.setTextColor(0xff908070); // 设置“支出”按钮为橙色
                     transaction.replace(R.id.item_fragment, new EarnFragment());
                     Log.i(TAG, "onClick: add_earn_button");
